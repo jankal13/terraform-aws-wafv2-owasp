@@ -1,4 +1,4 @@
-variable waf_prefix {
+variable wafv2_prefix {
   type        = string
   description = "Prefix to use when naming resources"
 }
@@ -25,6 +25,18 @@ variable whitelisted_ips {
   type        = list(string)
   default     = []
   description = "List of IPs allowed to access admin pages, ['1.1.1.1/32', '2.2.2.2/32', '3.3.3.3/32']"
+}
+
+variable cloudwatch_metrics_enabled {
+  type        = bool
+  default     = false
+  description = "Rule action type. Either true or false"
+}
+
+variable sampled_requests_enabled {
+  type        = bool
+  default     = false
+  description = "Rule action type. Either true or false"
 }
 
 /*
