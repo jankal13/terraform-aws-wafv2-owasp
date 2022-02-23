@@ -111,7 +111,7 @@ resource aws_wafv2_rule_group whitelist {
 
     statement {
       ip_set_reference_statement {
-        arn = aws_wafv2_ip_set.whitelisted_elastic_ips.arn
+        arn = aws_wafv2_ip_set.whitelisted_ips.arn
       }
     }
 
@@ -135,7 +135,7 @@ resource aws_wafv2_rule_group whitelist {
     statement {
           byte_match_statement {
             positional_constraint = "CONTAINS"
-            search_string         = "var.whitelisted_user_agent_header"
+            search_string         = var.whitelisted_user_agent_header
             
             field_to_match {
               single_query_argument {
